@@ -18,6 +18,11 @@ class check_mk_livestatus::config {
     }
   }
 
+  file { $check_mk_livestatus::xinetd_server_dir:
+    ensure => directory,
+    owner  => nagios,
+    group  => nagios,
+  }
 
   file {$check_mk_livestatus::xinetd_config:
     ensure  => present,

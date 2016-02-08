@@ -20,6 +20,7 @@ class check_mk_livestatus::params {
   $xinetd_flags = 'NODELAY'
   $xinetd_user = 'nagios'
   $xinetd_server = '/usr/bin/unixcat'
+  $xinetd_server_dir = '/var/lib/nagios3/rw'
   $xinetd_server_args = '/var/lib/nagios3/rw/live'
   $xinetd_only_from = [ '127.0.0.1' ]
   $xinetd_disable = 'no'
