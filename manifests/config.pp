@@ -1,10 +1,10 @@
 class check_mk_livestatus::config {
   if $check_mk_livestatus::enable_livestatus_neb_module {
     exec {'enable_livestatus_neb_module':
-      command => "echo \"broker_module=/usr/lib/check_mk/livestatus.o /var/lib/nagios3/rw/live debug=${check_mk_livestatus::debug_on}\" >>${check_mk_livestatus::nagios3_config}",
+      command => "echo \"broker_module=/usr/lib/check_mk/livestatus.o ${check_mk_livestatus::xinetd_server_args} debug=${check_mk_livestatus::debug_on}\" >>${check_mk_livestatus::nagios3_config}",
       path    => '/bin/:/usr/bin',
-      onlyif  => "test `grep -q \"livestatus.o\" ${check_mk_livestatus::nagios3_config}; echo \"\$?\"` -eq 1",
-      notify  => Class['nagios3::service'],
+      unless  => "grep -q 'livestatus.o' ${check_mk_livestatus::nagios3_config}; echo \$?",
+      notify  => Service['nagios'],
     }
   }
 
@@ -14,7 +14,7 @@ class check_mk_livestatus::config {
       changes => [
         'set event_broker_options -1',
       ],
-      notify  => Class['nagios3::service'],
+      notify  => Service['nagios'],
     }
   }
 

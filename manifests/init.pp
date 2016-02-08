@@ -27,8 +27,6 @@ class check_mk_livestatus (
   $xinetd_disable               = $check_mk_livestatus::params::xinetd_disable
 ) inherits check_mk_livestatus::params {
 
-  include nagios3
-
   class {'check_mk_livestatus::package':}
   class {'check_mk_livestatus::config':}
   class {'check_mk_livestatus::service':}

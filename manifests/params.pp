@@ -25,6 +25,12 @@ class check_mk_livestatus::params {
   $xinetd_disable = 'no'
 
   case $::operatingsystem {
+    'Amazon','RedHat','Centos': {
+      $package = [ 'mk-livestatus', 'xinetd' ]
+      $nagios3_config = '/etc/nagios/nagios.cfg'
+      $service_name = 'xinetd'
+      $xinetd_config = '/etc/xinetd.d/livestatus'
+    }
     'Debian': {
       $package = [ 'check-mk-livestatus', 'xinetd' ]
       $nagios3_config = '/etc/nagios3/nagios.cfg'
