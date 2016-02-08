@@ -26,7 +26,7 @@ class check_mk_livestatus::params {
 
   case $::operatingsystem {
     'Amazon','RedHat','Centos': {
-      $package = [ 'mk-livestatus', 'xinetd' ]
+      $package = [ 'check-mk-livestatus', 'xinetd' ]
       $nagios3_config = '/etc/nagios/nagios.cfg'
       $service_name = 'xinetd'
       $xinetd_config = '/etc/xinetd.d/livestatus'
