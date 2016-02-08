@@ -10,7 +10,6 @@ class check_mk_livestatus::package {
 
   package {$check_mk_livestatus::package:
     ensure          => $package_ensure,
-    provider        => 'aptbpo',
-    install_options => { '-t' => 'squeeze-backports' },
+    install_options => $install_opts,
   }
 }

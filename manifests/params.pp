@@ -30,12 +30,14 @@ class check_mk_livestatus::params {
       $nagios3_config = '/etc/nagios/nagios.cfg'
       $service_name = 'xinetd'
       $xinetd_config = '/etc/xinetd.d/livestatus'
+      $install_opts = undef
     }
     'Debian': {
       $package = [ 'check-mk-livestatus', 'xinetd' ]
       $nagios3_config = '/etc/nagios3/nagios.cfg'
       $service_name = 'xinetd'
       $xinetd_config = '/etc/xinetd.d/livestatus'
+      $install_opts = "'-t' =>  'squeeze-backports'"
     }
     default: {
       fail("\"${module_name}\" is not supported on \"${::operatingsystem}\"")
