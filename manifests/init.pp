@@ -9,6 +9,7 @@ class check_mk_livestatus (
   $debug_on                     = $check_mk_livestatus::params::debug_on,
   $enable_livestatus_neb_module = $check_mk_livestatus::params::enable_livestatus_neb_module,
   $enable_broker_everything     = $check_mk_livestatus::params::enable_broker_everything,
+  $install_opts                 = $check_mk_livestatus::params::install_opts,
   $xinetd_config                = $check_mk_livestatus::params::xinetd_config,
   $xinetd_type                  = $check_mk_livestatus::params::xinetd_type,
   $xinetd_port                  = $check_mk_livestatus::params::xinetd_port,
@@ -22,6 +23,7 @@ class check_mk_livestatus (
   $xinetd_flags                 = $check_mk_livestatus::params::xinetd_flags,
   $xinetd_user                  = $check_mk_livestatus::params::xinetd_user,
   $xinetd_server                = $check_mk_livestatus::params::xinetd_server,
+  $xinetd_server_dir            = $check_mk_livestatus::params::xinetd_server_dir,
   $xinetd_server_args           = $check_mk_livestatus::params::xinetd_server_args,
   $xinetd_only_from             = $check_mk_livestatus::params::xinetd_only_from,
   $xinetd_disable               = $check_mk_livestatus::params::xinetd_disable
